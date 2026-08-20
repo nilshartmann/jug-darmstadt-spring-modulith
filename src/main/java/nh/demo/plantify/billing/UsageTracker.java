@@ -5,6 +5,7 @@ import nh.demo.plantify.shared.CareTaskType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,7 @@ public class UsageTracker {
     //   - gucken wir uns gleich an
     @EventListener
     @Transactional
+    @Async
     void onPlantCreated(PlantRegisteredEvent event) {
         registerSetupFee(event.plantId(), event.ownerId());
     }

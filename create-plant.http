@@ -7,6 +7,12 @@ Content-Type: application/json
 #  - plant registered
 #
 # Mit den (synchronen) Events => identisches Verhalten
+#
+# Jetzt asynchron:
+#  - UsageTracker + CareService laufen auf eigenen Threads
+#  - 👉 Preis der Entkopplung: Eventual Consistency
+#    Der Client hat sein 201 schon, während care_tasks/usage_records
+#    noch entstehen
 
 {
   "location": "Balkon",

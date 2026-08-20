@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,6 +34,7 @@ public class CareService {
     //   - gucken wir uns gleich an
     @EventListener
     @Transactional
+    @Async
     void onPlantRegistered(PlantRegisteredEvent event) {
         setupInitialCareTasks(event.plantId(), event.ownerId(), event.plantType(), event.location());
     }
