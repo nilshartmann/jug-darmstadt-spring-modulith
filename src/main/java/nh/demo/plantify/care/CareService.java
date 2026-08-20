@@ -59,6 +59,12 @@ public class CareService {
             🌱
             
             """, plantId, ownerId);
+
+        // 🔗 Event-Kette: ein Listener darf selbst wieder ein Event auslösen
+        //    -> das owner-Modul benachrichtigt daraufhin den Besitzer
+        applicationEventPublisher.publishEvent(
+            CareTasksScheduledEvent.of(plantId, ownerId, careTasks)
+        );
     }
 
     private CareTask createFromSuggestion(UUID plantId, CareSuggestion suggestion) {
