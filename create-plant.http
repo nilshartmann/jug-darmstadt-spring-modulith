@@ -5,6 +5,8 @@ Content-Type: application/json
 #  - initial care tasks
 #  - setup fee
 #  - plant registered
+#
+# Mit den (synchronen) Events => identisches Verhalten
 
 {
   "location": "Balkon",
